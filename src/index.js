@@ -1,24 +1,14 @@
 import startCase from 'lodash.startcase'
 import * as permissions from './permissions'
 
-export const checkPermissions = code =>
-  Object.entries(permissions)
-    .filter(([, fn]) => fn(code))
-    .map(([key]) => key)
-
 /* ============================================ */
 /*              DERIVE PERMISSIONS              */
 /* ============================================ */
 
-export const derivePermissions = (code, oldPerms = []) => {
-  const set = new Set(oldPerms)
-
-  const permissions = checkPermissions(code)
-
-  permissions.forEach(p => set.add(p))
-
-  return [...set]
-}
+export const derivePermissions = code =>
+  Object.entries(permissions)
+    .filter(([, fn]) => fn(code))
+    .map(([key]) => key)
 
 /* ============================================ */
 /*                DERIVE MANIFEST               */
@@ -36,6 +26,17 @@ export const deriveManifest = (
     description,
     author,
     ...manifest,
-    permissions,
+    permissions: combineArrays(
+      manifest.permissions,
+      permissions,
+    ),
   }
+}
+
+const combineArrays = (...arrays) => {
+  const flat = arrays.flat().filter(a => a)
+  const set = new Set(flat)
+  const values = [...set]
+
+  return values.sort()
 }

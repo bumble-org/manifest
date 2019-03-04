@@ -31,5 +31,7 @@
   "files": [
     "build"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "lodash.startcase": "^4.4.0"
+  }
 }
