@@ -1,6 +1,6 @@
 {
   "name": "@bumble/manifest",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Derive your chrome extension manifest from your package.json and code.",
   "main": "build/bundle-cjs.js",
   "module": "build/bundle-esm.js",
