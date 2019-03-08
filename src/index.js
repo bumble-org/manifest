@@ -15,10 +15,18 @@ export const derivePermissions = code =>
 /* ============================================ */
 
 export const deriveManifest = (
-  { name, version, description, author },
-  manifest = {},
-  permissions = [],
+  { name, version, description, author }, // package.json
+  manifest = {}, // manifest.json
+  permissions = [], // will be combined with manifest.permissions
 ) => {
+  // TODO: Make so multiple sets of permissions
+  // can be passed
+  // Make manifest optional
+  if (Array.isArray(manifest) && !permissions) {
+    permissions = manifest
+    manifest = {}
+  }
+
   return {
     manifest_version: 2,
     name: startCase(name),
@@ -27,7 +35,7 @@ export const deriveManifest = (
     author,
     ...manifest,
     permissions: combineArrays(
-      manifest.permissions,
+      manifest.permissions || [],
       permissions,
     ),
   }
