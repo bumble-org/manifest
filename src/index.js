@@ -1,5 +1,6 @@
 import startCase from 'lodash.startcase'
 import * as permissions from './permissions'
+import { combineArrays } from './combineArrays'
 
 /* ============================================ */
 /*              DERIVE PERMISSIONS              */
@@ -39,14 +40,6 @@ export const deriveManifest = (
       permissions,
     ),
   }
-}
-
-export const combineArrays = (...arrays) => {
-  const flat = arrays.flat(5).filter(a => a)
-  const set = new Set(flat)
-  const values = [...set]
-
-  return values.sort()
 }
 
 export { deriveEntries } from './entries.js'

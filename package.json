@@ -1,7 +1,7 @@
 {
   "name": "@bumble/manifest",
   "version": "0.2.0",
-  "description": "Derive your chrome extension manifest from your package.json and code.",
+  "description": "Utils to derive and manipulate the manifest file for a Chrome extension",
   "main": "build/bundle-cjs.js",
   "module": "build/bundle-esm.js",
   "author": "Jack and Amy Steam <jacksteamdev@gmail.com>",
