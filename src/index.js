@@ -48,3 +48,5 @@ export const combineArrays = (...arrays) => {
 
   return values.sort()
 }
+
+export { deriveEntries } from './entries.js'
