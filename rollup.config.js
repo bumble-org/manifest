@@ -19,6 +19,6 @@ export default [
         sourcemap: 'inline',
       },
     ],
-    external: ['lodash.startcase'],
+    external: ['lodash.startcase', 'dedupe'],
   },
 ]
