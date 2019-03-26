@@ -18,6 +18,8 @@ export const storage = s =>
 
 export const tabs = s => /chrome[\s\n]*\.[\s\n]*tabs/.test(s)
 
+export const alarms = s => /chrome[\s\n]*\.[\s\n]*alarms/.test(s)
+
 export const webRequest = s =>
   /chrome[\s\n]*\.[\s\n]*webRequest/.test(s)
 
