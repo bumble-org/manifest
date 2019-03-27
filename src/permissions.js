@@ -79,7 +79,7 @@ export const storage = s =>
   /chrome[\s\n]*\.[\s\n]*storage/.test(s)
 export const tabCapture = s =>
   /chrome[\s\n]*\.[\s\n]*tabCapture/.test(s)
-export const tabs = s => /chrome[\s\n]*\.[\s\n]*tabs/.test(s)
+// export const tabs = s => /chrome[\s\n]*\.[\s\n]*tabs/.test(s)
 export const topSites = s =>
   /chrome[\s\n]*\.[\s\n]*topSites/.test(s)
 export const tts = s => /chrome[\s\n]*\.[\s\n]*tts/.test(s)
