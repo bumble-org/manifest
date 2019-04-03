@@ -1,6 +1,6 @@
 import startCase from 'lodash.startcase'
 import * as permissions from './permissions'
-import { combineArrays } from './combineArrays'
+import { combinePerms } from './combine'
 
 /* ============================================ */
 /*              DERIVE PERMISSIONS              */
@@ -16,14 +16,12 @@ export const derivePermissions = code =>
 /* ============================================ */
 
 export const deriveManifest = (
-  { name, version, description, author }, // package.json
+  { name, version, description }, // package.json
   manifest = {}, // manifest.json
-  permissions = [], // will be combined with manifest.permissions
+  ...permissions // will be combined with manifest.permissions
 ) => {
-  // TODO: Make so multiple sets of permissions
-  // can be passed
   // Make manifest optional
-  if (Array.isArray(manifest) && !permissions) {
+  if (Array.isArray(manifest) && !permissions.length) {
     permissions = manifest
     manifest = {}
   }
@@ -33,11 +31,10 @@ export const deriveManifest = (
     name: startCase(name),
     version,
     description,
-    author,
     ...manifest,
-    permissions: combineArrays(
-      manifest.permissions || [],
+    permissions: combinePerms(
       permissions,
+      manifest.permissions || [],
     ),
   }
 }
