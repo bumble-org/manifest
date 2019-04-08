@@ -1,8 +1,6 @@
 /* eslint-env node */
 
-// import resolve from 'rollup-plugin-node-resolve'
-// import commonjs from 'rollup-plugin-commonjs'
-// import json from 'rollup-plugin-json'
+import json from 'rollup-plugin-json'
 
 export default [
   {
@@ -19,6 +17,12 @@ export default [
         sourcemap: 'inline',
       },
     ],
-    external: ['lodash.startcase', 'dedupe'],
+    plugins: [json()],
+    external: [
+      'ajv',
+      'ajv/lib/refs/json-schema-draft-04.json',
+      'dedupe',
+      'lodash.startcase',
+    ],
   },
 ]
