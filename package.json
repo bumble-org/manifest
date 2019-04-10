@@ -2,19 +2,14 @@
   "name": "@bumble/manifest",
   "version": "0.5.0",
   "description": "Utils to derive and manipulate the manifest file for a Chrome extension",
+  "repository": "bumble-org/manifest",
+  "license": "MIT",
+  "author": "Jack and Amy Steam <jacksteamdev@gmail.com>",
+  "files": [
+    "build"
+  ],
   "main": "build/bundle-cjs.js",
   "module": "build/bundle-esm.js",
-  "author": "Jack and Amy Steam <jacksteamdev@gmail.com>",
-  "license": "MIT",
-  "repository": "bumble-org/manifest",
-  "devDependencies": {
-    "@sucrase/jest-plugin": "^2.0.0",
-    "eslint": "^5.16.0",
-    "jest": "^24.7.1",
-    "rollup": "^0.68.0",
-    "rollup-plugin-json": "^4.0.0",
-    "sucrase": "^3.10.1"
-  },
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
@@ -23,19 +18,24 @@
     "postversion": "git push && npm publish"
   },
   "jest": {
-    "transform": {
-      ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
-    },
     "setupFilesAfterEnv": [
       "./tests/jest.setup.js"
-    ]
+    ],
+    "transform": {
+      ".(js|jsx|ts|tsx)": "@sucrase/jest-plugin"
+    }
   },
-  "files": [
-    "build"
-  ],
   "dependencies": {
     "ajv": "^6.10.0",
     "dedupe": "^3.0.1",
     "lodash.startcase": "^4.4.0"
+  },
+  "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "eslint": "^5.16.0",
+    "jest": "^24.7.1",
+    "rollup": "^0.68.0",
+    "rollup-plugin-json": "^4.0.0",
+    "sucrase": "^3.10.1"
   }
 }
