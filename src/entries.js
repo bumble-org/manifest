@@ -12,6 +12,7 @@ export const deriveEntries = (
     short_name,
     permissions,
     content_security_policy,
+    key,
     ...manifest
   },
   options,
