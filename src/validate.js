@@ -4,6 +4,7 @@ import manifestSchema from './schema.json'
 import jsonSchema from 'ajv/lib/refs/json-schema-draft-04.json'
 
 export const ajv = new Ajv({
+  verbose: true,
   schemaId: 'auto',
   schemas: {
     'http://json-schema.org/draft-04/schema#': jsonSchema,

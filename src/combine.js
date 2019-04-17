@@ -2,13 +2,15 @@ export const combinePerms = (...permissions) => {
   const { perms, xperms } = permissions.flat(Infinity).reduce(
     ({ perms, xperms }, perm) => {
       if (perm.startsWith('!')) {
-        return { perms, xperms: xperms.concat(perm.slice(1)) }
+        xperms.add(perm.slice(1))
+      } else {
+        perms.add(perm)
       }
 
-      return { perms: perms.concat(perm), xperms }
+      return { perms, xperms }
     },
-    { perms: [], xperms: [] },
+    { perms: new Set(), xperms: new Set() },
   )
 
-  return perms.filter(p => !xperms.includes(p))
+  return [...perms].filter(p => !xperms.has(p))
 }
