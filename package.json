@@ -1,6 +1,6 @@
 {
   "name": "@bumble/manifest",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Utils to derive and manipulate the manifest file for a Chrome extension",
   "repository": "bumble-org/manifest",
   "license": "MIT",
