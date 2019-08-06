@@ -26,14 +26,14 @@
     }
   },
   "dependencies": {
-    "ajv": "^6.10.0",
+    "ajv": "^6.10.2",
     "dedupe": "^3.0.1",
     "lodash.startcase": "^4.4.0"
   },
   "devDependencies": {
     "@sucrase/jest-plugin": "^2.0.0",
     "eslint": "^5.16.0",
-    "jest": "^24.7.1",
+    "jest": "^24.8.0",
     "rollup": "^0.68.0",
     "rollup-plugin-json": "^4.0.0",
     "sucrase": "^3.10.1"
